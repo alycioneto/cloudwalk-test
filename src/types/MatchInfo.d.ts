@@ -1,7 +1,7 @@
-type MatchInfo<User extends string> = {
+export type MatchInfo = {
   total_kills: number;
-  players: User[];
+  players: string[];
   kills: {
-    [key in User]: number;
+    [key: string]: number;
   };
 };
