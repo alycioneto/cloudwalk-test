@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsup src --out-dir build",
+    "build": "tsup src --out-dir dist",
     "test": "jest",
     "lint": "eslint --fix ./src",
     "test:coverage": "jest --coverage"
