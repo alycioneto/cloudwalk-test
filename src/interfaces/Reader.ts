@@ -1,3 +1,3 @@
 export interface Reader {
-  readAndParseLines(filePath: string): Promise<string[]>;
+  readLines(filePath: string): Promise<string[]>;
 }
