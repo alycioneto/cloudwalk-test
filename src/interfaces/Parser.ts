@@ -1,3 +1,5 @@
+import { MatchInfo } from "@/types/MatchInfo";
+
 export interface Parser {
-  parse(line: string): any;
+  parse(line: string[]): MatchInfo;
 }
