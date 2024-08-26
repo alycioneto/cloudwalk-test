@@ -1,8 +1,8 @@
-import { Reader } from "@/interfaces/Reader";
+import { isGameStart, isKillLine } from "../utils/GameTools";
 import * as fs from "fs";
 import * as readline from "readline";
 
-export class LogReader implements Reader {
+export class LogReader {
   public async readLines(filePath: string): Promise<string[]> {
     const lines: string[] = [];
 
@@ -12,7 +12,9 @@ export class LogReader implements Reader {
     });
 
     for await (const line of rl) {
-      lines.push(line);
+      if (isGameStart(line) || isKillLine(line)) {
+        lines.push(line);
+      }
     }
 
     return lines;
