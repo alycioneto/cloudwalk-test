@@ -1,13 +1,12 @@
-import { LogParser } from "./services/LogParser";
-import { Reader } from "./interfaces/Reader";
+import { GameLogProcessor } from "./services/GameLogProcessor";
 import { LogReader } from "./services/LogReader";
-import { Parser } from "./interfaces/Parser";
+import { MatchReports } from "./services/MatchReports";
 
-const logReader: Reader = new LogReader();
-const logParser: Parser = new LogParser();
+const logReader = new LogReader();
+const logParser = new GameLogProcessor();
+const matchReports = new MatchReports(logParser);
 
 (async () => {
   const lines = await logReader.readLines("data/logs.txt");
-  const matchInfo = logParser.parse(lines);
-  console.log(matchInfo);
+  matchReports.generateReports(lines);
 })();
