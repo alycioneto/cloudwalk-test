@@ -8,10 +8,10 @@ clean:
 	rm -rf coverage
 
 run:
-	node ./build/index.js
+	node ./dist/index.js
 
 test:
 	npm test
-
+	
 coverage:
 	npm run test:coverage
